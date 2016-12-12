@@ -2,6 +2,8 @@
 // @name        medecin
 // @namespace   gdg
 // @include     https://www.guerredesgangs.net/fr/medecin.c
+// @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/gdg/medecin.user.js
+// @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/gdg/medecin.user.js
 // @version     1
 // @grant       none
 // ==/UserScript==
