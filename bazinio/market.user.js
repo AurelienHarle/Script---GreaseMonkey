@@ -4,6 +4,8 @@
 // @description deal each hour
 // @include     https://www.bazinio.com/marche.c
 // @include     https://www.bazinio.com//login.php?id=*
+// @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/market.user.js
+// @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/market.user.js
 // @version     1
 // @grant       none
 // ==/UserScript==
