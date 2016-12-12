@@ -3,6 +3,8 @@
 // @namespace   anarchy
 // @description Connect to the right account
 // @include     https://www.bazinio.com/
+// @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Connexion.user.js
+// @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Connexion.user.js
 // @version     1
 // @grant       none
 // ==/UserScript==
