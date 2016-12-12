@@ -2,7 +2,8 @@
 // @name        Auto Attaque
 // @namespace   Guerre des gangs
 // @include     https://www.guerredesgangs.net/fr/braquage.c*
-// @include     https://www.guerredesgangs.net/fr/braquage.c
+// @downloadURL https://github.com/AurelienHarle/Script---GreaseMonkey/master/gdg/Auto_Attaque.user.js
+// @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/gdg/Auto_Attaque.user.js
 // @version     1
 // @grant       none
 // ==/UserScript==
