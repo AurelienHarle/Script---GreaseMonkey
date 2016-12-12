@@ -2,6 +2,8 @@
 // @name        LocalStoreur
 // @namespace   anarchy
 // @include     https://www.bazinio.com/marche.c
+// @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/LocalStoreur.user.js
+// @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/LocalStoreur.user.js
 // @version     1
 // @grant       none
 // ==/UserScript==
