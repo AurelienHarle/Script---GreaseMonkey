@@ -3,6 +3,8 @@
 // @namespace   Guerre des gangs
 // @description Auto-deal each hour
 // @include     https://www.guerredesgangs.net/fr/marche.c
+// @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/gdg/Marcher.user.js
+// @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/gdg/Marcher.user.js
 // @version     1
 // @grant       none
 // ==/UserScript==
