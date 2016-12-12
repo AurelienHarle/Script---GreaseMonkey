@@ -2,6 +2,7 @@
 // @name        Acceuil
 // @namespace   anarchy
 // @include     https://www.bazinio.com/home.c*
+// @downloadURL https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Acceuil.user.js
 // @version     1
 // @grant       none
 // ==/UserScript==
