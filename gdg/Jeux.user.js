@@ -3,6 +3,8 @@
 // @namespace   Guerre des gangs
 // @description Auto play ticket and loto every hour/day
 // @include     https://www.guerredesgangs.net/fr/jeux.c
+// @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/gdg/Jeux.user.js
+// @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/gdg/Jeux.user.js
 // @version     1
 // @grant       none
 // ==/UserScript==
