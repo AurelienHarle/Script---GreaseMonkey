@@ -2,8 +2,8 @@
 // @name        sac
 // @namespace   bazinio
 // @include     https://www.bazinio.com/garage.c
-// @downloadURL
-// @updateURL
+// @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/sac.user.js
+// @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/sac.user.js
 // @version     1
 // @grant       none
 // ==/UserScript==
