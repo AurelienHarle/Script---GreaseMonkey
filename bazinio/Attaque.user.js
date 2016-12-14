@@ -2,8 +2,8 @@
 // @name        Attaque
 // @namespace   bazinio
 // @include     https://www.bazinio.com/ville.c*
-// @downloadURL
-// @updateURL
+// @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Attaque.user.js
+// @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Attaque.user.js
 // @version     1
 // @grant       none
 // ==/UserScript==
