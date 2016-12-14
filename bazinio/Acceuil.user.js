@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name        Acceuil
 // @namespace   anarchy
 // @include     https://www.bazinio.com/home.c*
@@ -11,6 +11,9 @@
 //Bienvenu maitre.
 
 console.log("Initialisation de l'IA");
+
+vie = document.getElementById('col_fiche').getElementsByTagName('td')[0].innerHTML;
+vie = parseInt(vie.split('/')[0]);
 
 /**
 Cette fonctionnalité amenera sur les differentes celon les données recupéré sur l'accueil 
@@ -26,10 +29,19 @@ function changePage(){
 	boolDepose = false;
 	boolAttaque = false;
 	boolSac = true;
+	boolMedecin = false;
+	boolCnd = false;
 	
+	if(vie != 50){
+		boolMedecin = true;
+	}
 	//Aiguilleur
 	
-	if(boolMarche){
+	if(boolMedecin){
+		
+		document.getElementById('medecin').click();
+		
+	}else if(boolMarche){
 		
 		document.getElementById('marche').click();
 		
@@ -55,6 +67,11 @@ function changePage(){
 		
 		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[3].click()
 	
+	}else if (boolCnd){
+		
+		localStorage.banque = "cnd"
+		document.getElementById('banque').click();
+		
 	}
 
 }

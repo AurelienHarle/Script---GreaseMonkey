@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name        market
 // @namespace   anarchy
 // @description deal each hour
@@ -6,7 +6,7 @@
 // @include     https://www.bazinio.com//login.php?id=*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/market.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/market.user.js
-// @version     1
+// @version     1.01
 // @grant       none
 // ==/UserScript==
 
@@ -166,35 +166,21 @@ Change de compte
 */
 function changementCompte(){
 	
-	/* Suivant la lite 1 10 100 101 peux etre trier*/
-	console.log("Time to swap master !");
-	
-	currentNumber = localStorage.number;
-	
-	if(currentNumber == undefined){
-		currentNumber = 1;
-		localStorage.number = 1;
+	accountList = document.getElementById('chat').getElementsByTagName('a');
+	currentAccount = document.getElementsByClassName('lfiche')[0].getElementsByTagName('a')[0].innerHTML;
+	currentNumber = parseInt(currentAccount.split('e')[1]);
+	if(currentNumber == 200){
+		nextNumber = 1
+	}else{
+		nextNumber = currentNumber + 1;
 	}
-	
-	nextNumber = parseInt(currentNumber) + 1;
-	
-	if(nextNumber > 200){
-		nextNumber = 1;
+	nextAccount = "Suicide" + nextNumber;
+	for(i = 0;i < accountList.length;i++){
+		
+		if(accountList[i].innerHTML ==  nextAccount){
+			accountList[i].click();
+		}
 	}
-	
-	localStorage.number = nextNumber;
-	accountList = document.getElementById('chat').getElementsByTagName('a')[nextNumber].click();
-	
-	/*Par comtpe 1 2 3 4.... */
-	//currentAccount = document.getElementsByClassName('lfiche')[0].getElementsByTagName('a')[0].innerHTML;
-	//currentNumber = parseInt(currentAccount.split('e')[1]);
-	//nextAccount = "Suicide" + nextNumber;
-	//for(i = 0;i < accountList.length;i++){
-	//	
-	//	if(accountList[i].innerHTML ==  nextAccount){
-	//		accountList[i].click();
-	//	}
-	//}
 	
 }
 

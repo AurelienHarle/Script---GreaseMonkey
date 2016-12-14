@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name        banque
 // @namespace   Anarchy
 // @description depose en banque le surplus
@@ -11,10 +11,6 @@
 
 
 function depose(){
-	
-	if(document.getElementsByName('dep')[0] != undefined){
-		document.getElementsByName('dep')[0].click();
-	}
 	
 	cash = document.getElementsByClassName('liens')[2].getElementsByTagName('td')[0].innerHTML;
 	cash = cash.replace(/µ/,"");
@@ -33,10 +29,6 @@ function depose(){
 	
 function retire(){
 	
-	if(document.getElementsByName('dep')[0] != undefined){
-		document.getElementsByName('dep')[0].click();
-	}
-	
 	inputRetire = document.getElementById('banque_retrait');
 	if(inputRetire == null){
 		setTimeout(changementCompte,randomTimeout());
@@ -47,30 +39,46 @@ function retire(){
 	
 }	
 
+function cnd(){
+	
+	cnd = document.getElementsByClassName('liens')[2].getElementsByTagName('td')[2].innerHTML;
+	cnd = cnd.replace(/µ/,"");
+	cnd = parseInt(cnd.replace(/\s+/g,""));
+		 
+	if(cnd == 10000000){
+		
+		setTimeout(changementCompte,randomTimeout());
+		
+	}else{
+		
+		document.getElementById('magot_depot').value = "10000000";
+		document.getElementsByClassName('btn')[1].click();
+		
+	}
+	
+	
+}
+
 /**
 Change de compte
 */
 function changementCompte(){
 	
-	/* Suivant la lite 1 10 100 101 peux etre trier*/
-	console.log("Time to swap master !");
-	
-	currentNumber = localStorage.number;
-	
-	if(currentNumber == undefined){
-		currentNumber = 1;
-		localStorage.number = 1;
+	accountList = document.getElementById('chat').getElementsByTagName('a');
+	currentAccount = document.getElementsByClassName('lfiche')[0].getElementsByTagName('a')[0].innerHTML;
+	currentNumber = parseInt(currentAccount.split('e')[1]);
+	if(currentNumber == 200){
+		nextNumber = 1
+	}else{
+		nextNumber = currentNumber + 1;
 	}
-	
-	nextNumber = parseInt(currentNumber) + 1;
-	
-	if(nextNumber > 200){
-		nextNumber = 1;
+	nextAccount = "Suicide" + nextNumber;
+	for(i = 0;i < accountList.length;i++){
+		
+		if(accountList[i].innerHTML ==  nextAccount){
+			accountList[i].click();
+		}
 	}
-	
-	localStorage.number = nextNumber;
-	accountList = document.getElementById('chat').getElementsByTagName('a')[nextNumber].click();
-	
 }
 	
 /**
@@ -93,5 +101,9 @@ if(localStorage.banque == "depose"){
 }else if (localStorage.banque == "retire"){
 	
 	setTimeout(retire,randomTimeout());
+	
+}else if (localStorage.banque == "cnd"){
+	
+	setTimeout(cnd,randomTimeout());
 	
 }

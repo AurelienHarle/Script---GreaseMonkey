@@ -1,21 +1,24 @@
 // ==UserScript==
-// @name        sac
+// @name        medecin
 // @namespace   bazinio
-// @include     https://www.bazinio.com/garage.c
-// @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/sac.user.js
-// @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/sac.user.js
+// @include     https://www.bazinio.com/medecin.c
+// @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Medecin.user.js
+// @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Medecin.user.js
 // @version     1
 // @grant       none
 // ==/UserScript==
 
-function sac(){
-
-	sac = document.getElementsByName('new_car')[0];
-	if(sac != undefined){
-		sac = document.getElementsByName('new_car')[0].click();
+vie = document.getElementById('col_fiche').getElementsByTagName('td')[0].innerHTML;
+vie = parseInt(vie.split('/')[0]);
+	
+function medecin(){
+	
+	if(vie == 50){
+		document.getElementById('head_l').getElementsByTagName('a')[0].click();
 	}else{
-		setTimeout(changementCompte,randomTimeout);
+		document.getElementsByName('soigner')[0].click();
 	}
+	
 }
 
 /**
@@ -52,4 +55,8 @@ function randomTimeout(){
 	return randTimeout;
 }
 
-setTimeout(sac,randomTimeout());
+if(vie != 50){
+	setTimeout(medecin,randomTimeout());
+}else{
+	document.getElementById('head_l').getElementsByTagName('a')[0].click();
+}

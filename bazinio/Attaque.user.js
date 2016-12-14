@@ -13,7 +13,7 @@ function attaque(){
 	cible = document.getElementsByName('cible')[0].getElementsByTagName('option');
 	pa = document.getElementById('col_fiche').getElementsByTagName('td')[1].innerHTML;
 	pa = parseInt(pa.split('/')[0]);
-	if(pa == 10){
+	if(pa < 10){
 			setTimeout(changementCompte,randomTimeout());
 	}else{
 		for(var i = 0;i< cible.length;i++){
@@ -22,7 +22,7 @@ function attaque(){
 				
 				cible[i].selected = true;
 				attaque = document.getElementsByName('att')[0].click();
-				
+				//break;
 			}
 		}
 		setTimeout(changementCompte,randomTimeout());
@@ -34,22 +34,21 @@ Change de compte
 */
 function changementCompte(){
 	
-	currentNumber = localStorage.number;
-	
-	if(currentNumber == undefined){
-		currentNumber = 1;
-		localStorage.number = 1;
+	accountList = document.getElementById('chat').getElementsByTagName('a');
+	currentAccount = document.getElementsByClassName('lfiche')[0].getElementsByTagName('a')[0].innerHTML;
+	currentNumber = parseInt(currentAccount.split('e')[1]);
+	if(currentNumber == 200){
+		nextNumber = 1
+	}else{
+		nextNumber = currentNumber + 1;
 	}
-	
-	nextNumber = parseInt(currentNumber) + 1;
-	
-	if(nextNumber > 200){
-		nextNumber = 1;
+	nextAccount = "Suicide" + nextNumber;
+	for(i = 0;i < accountList.length;i++){
+		
+		if(accountList[i].innerHTML ==  nextAccount){
+			accountList[i].click();
+		}
 	}
-	
-	localStorage.number = nextNumber;
-	accountList = document.getElementById('chat').getElementsByTagName('a')[nextNumber].click();
-	
 }
 	
 /**
@@ -57,8 +56,8 @@ Genere un chiffre aleatoire entre 750 et 2000, et est retourné pour generé un 
 */
 function randomTimeout(){
 	
-	var max = 2550;
-	var min = 950;
+	var max = 1000;
+	var min = 500;
     var randTimeout = min + (max-min+1) * Math.random();
     randTimeout = Math.trunc(randTimeout)
 	return randTimeout;
