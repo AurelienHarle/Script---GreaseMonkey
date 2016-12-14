@@ -4,7 +4,7 @@
 // @include     https://www.bazinio.com/home.c*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Acceuil.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Acceuil.user.js
-// @version     1
+// @version     1.01
 // @grant       none
 // ==/UserScript==
 
@@ -18,21 +18,45 @@ et les parties activée ou non du script
 */
 function changePage(){
 	
-	boolmonte = false;
-	boolmarche = true;
+	//Choix changeable attention a l'ordre
 	
-	//Systeme de true false a implementé
+	boolMarche = false;
+	boolMonte = false;
+	boolRetire = false;
+	boolDepose = false;
+	boolAttaque = false;
+	boolSac = true;
 	
 	//Aiguilleur
 	
-	if(boolmarche == true){
-			document.getElementById('marche').click();
-	}else if(boolmonte == true){
+	if(boolMarche){
 		
+		document.getElementById('marche').click();
+		
+	}else if(boolMonte){
+		
+		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[4].click();
+		
+	}else if (boolRetire){
+		
+		localStorage.banque = "retire"
+		document.getElementById('banque').click();
+		
+	}else if (boolDepose){
+		
+		localStorage.banque = "depose"
+		document.getElementById('banque').click();
+		
+	}else if (boolAttaque){
+		
+		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[5].click();
+	
+	}else if (boolSac){
+		
+		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[3].click()
+	
 	}
 
-	
-	
 }
 
 /**
