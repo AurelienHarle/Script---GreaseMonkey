@@ -4,7 +4,7 @@
 // @include     https://www.bazinio.com/home.c*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Acceuil.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Acceuil.user.js
-// @version     1.01
+// @version     1.01a
 // @grant       none
 // ==/UserScript==
 
@@ -23,12 +23,12 @@ function changePage(){
 	
 	//Choix changeable attention a l'ordre
 	
-	boolMarche = false;
+	boolMarche = true;
 	boolMonte = false;
 	boolRetire = false;
 	boolDepose = false;
 	boolAttaque = false;
-	boolSac = true;
+	boolSac = false;
 	boolMedecin = false;
 	boolCnd = false;
 	
