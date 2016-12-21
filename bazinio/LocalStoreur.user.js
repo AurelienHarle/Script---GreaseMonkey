@@ -1,4 +1,4 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name        LocalStoreur
 // @namespace   anarchy
 // @include     https://www.bazinio.com/marche.c
@@ -61,7 +61,6 @@ function createAccount(){
 
 function putIntoStorage(accounts,currentNumber){
 
-
 //Get the already present object and add the object we create
 	var oldAccounts = localStorage.getItem('accounts');
 	
@@ -71,18 +70,21 @@ function putIntoStorage(accounts,currentNumber){
 
 		for(var i = 0;i < oldAccounts.length;i++){
 		
-		accounts[oldAccounts[i].nombre] = new Object();
-		accounts[oldAccounts[i].nombre].name = oldAccounts[i].name;
-		accounts[oldAccounts[i].nombre].nombre = oldAccounts[i].nombre;
-		accounts[oldAccounts[i].nombre].vie = oldAccounts[i].vie;
-		accounts[oldAccounts[i].nombre].pa = oldAccounts[i].pa;
-		accounts[oldAccounts[i].nombre].niveau = oldAccounts[i].niveau;
-		accounts[oldAccounts[i].nombre].poche = oldAccounts[i].poche;
-		accounts[oldAccounts[i].nombre].cash =	oldAccounts[i].cash;
-		accounts[oldAccounts[i].nombre].banque = oldAccounts[i].banque;
-		accounts[oldAccounts[i].nombre].cnd = oldAccounts[i].cnd;
-		accounts[oldAccounts[i].nombre].ville = oldAccounts[i].ville;
-		
+			if(i != currentNumber){
+				
+				accounts[oldAccounts[i].nombre] = new Object();
+				accounts[oldAccounts[i].nombre].name = oldAccounts[i].name;
+				accounts[oldAccounts[i].nombre].nombre = oldAccounts[i].nombre;
+				accounts[oldAccounts[i].nombre].vie = oldAccounts[i].vie;
+				accounts[oldAccounts[i].nombre].pa = oldAccounts[i].pa;
+				accounts[oldAccounts[i].nombre].niveau = oldAccounts[i].niveau;
+				accounts[oldAccounts[i].nombre].poche = oldAccounts[i].poche;
+				accounts[oldAccounts[i].nombre].cash =	oldAccounts[i].cash;
+				accounts[oldAccounts[i].nombre].banque = oldAccounts[i].banque;
+				accounts[oldAccounts[i].nombre].cnd = oldAccounts[i].cnd;
+				accounts[oldAccounts[i].nombre].ville = oldAccounts[i].ville;
+				
+			}
 		}
 	}
 
