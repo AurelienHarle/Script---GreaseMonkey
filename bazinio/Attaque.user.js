@@ -4,10 +4,13 @@
 // @include     https://www.bazinio.com/ville.c*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Attaque.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Attaque.user.js
-// @version     1
+// @version     1.01
 // @grant       none
 // ==/UserScript==
 
+/**
+Selectionn la cible et attaque 3 fois
+*/
 function attaque(){
 	
 	cible = document.getElementsByName('cible')[0].getElementsByTagName('option');
@@ -30,7 +33,7 @@ function attaque(){
 }
 
 /**
-Change de compte
+Changement de compte
 */
 function changementCompte(){
 	
