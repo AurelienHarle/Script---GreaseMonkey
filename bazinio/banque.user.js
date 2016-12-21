@@ -5,11 +5,13 @@
 // @include     https://www.bazinio.com/banque.c*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/banque.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/banque.user.js
-// @version     1.01a
+// @version     1.01b
 // @grant       none
 // ==/UserScript==
 
-
+/**
+Fonction qui depose la somme voulu en banque pour changer la somme voir "depose"
+*/
 function depose(){
 	
 	cash = document.getElementsByClassName('liens')[2].getElementsByTagName('td')[0].innerHTML;
@@ -26,7 +28,10 @@ function depose(){
 	document.getElementsByClassName('btn')[0].click();
 	
 }
-	
+
+/**
+Fonction qui retire TOUT de la banque TODO qui retire seulement la somme souhaiter
+*/	
 function retire(){
 	
 	inputRetire = document.getElementById('banque_retrait');
@@ -39,6 +44,9 @@ function retire(){
 	
 }	
 
+/**
+Depose l'argent au dessu de X en cash voir "cndDepose"
+*/
 function cnd(){
 	
 	cnd = document.getElementsByClassName('liens')[2].getElementsByTagName('td')[2].innerHTML;
@@ -61,12 +69,10 @@ function cnd(){
 		document.getElementsByClassName('btn')[1].click();
 		
 	}
-	
-	
 }
 
 /**
-Change de compte
+Changement de compte
 */
 function changementCompte(){
 	
@@ -99,17 +105,25 @@ function randomTimeout(){
 	return randTimeout;
 }
 
+/**
+Fonction de controle , qui renvoie sur la fonction celon l'action a realisée
+*/
+function controleBanque(){
+	
+	if(localStorage.banque == "depose"){
+		
+		setTimeout(depose,randomTimeout());
+		
+	}else if (localStorage.banque == "retire"){
+		
+		setTimeout(retire,randomTimeout());
+		
+	}else if (localStorage.banque == "cnd"){
+		
+		setTimeout(cnd,randomTimeout());
+		
+	}
 
-if(localStorage.banque == "depose"){
-	
-	setTimeout(depose,randomTimeout());
-	
-}else if (localStorage.banque == "retire"){
-	
-	setTimeout(retire,randomTimeout());
-	
-}else if (localStorage.banque == "cnd"){
-	
-	setTimeout(cnd,randomTimeout());
-	
 }
+
+setTimmeout(controlebanque,randomTimeout());
