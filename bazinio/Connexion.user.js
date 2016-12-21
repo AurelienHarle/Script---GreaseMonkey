@@ -1,11 +1,12 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name        Connexion
 // @namespace   anarchy
 // @description Connect to the right account
 // @include     https://www.bazinio.com/
+// @include 	https://www.bazinio.com/index?error
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Connexion.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Connexion.user.js
-// @version     1
+// @version     1.01
 // @grant       none
 // ==/UserScript==
 
