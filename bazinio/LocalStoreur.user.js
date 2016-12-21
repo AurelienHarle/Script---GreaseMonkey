@@ -4,10 +4,13 @@
 // @include     https://www.bazinio.com/marche.c
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/LocalStoreur.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/LocalStoreur.user.js
-// @version     1
+// @version     1.01
 // @grant       none
 // ==/UserScript==
 
+/**
+Recupere toute les données lié a un compte et creer un objet accounts dans une collection.
+*/
 function createAccount(){
 	
 	accounts = new Array();
@@ -59,9 +62,11 @@ function createAccount(){
 	putIntoStorage(accounts,currentNumber);
 }
 
+/**
+Recupere l'objet accounts et les autres objet accounts deja present dans le local storage et les rajoute au localStorage grace a JSON
+*/
 function putIntoStorage(accounts,currentNumber){
 
-//Get the already present object and add the object we create
 	var oldAccounts = localStorage.getItem('accounts');
 	
 	if(oldAccounts != null){
