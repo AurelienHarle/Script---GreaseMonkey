@@ -4,7 +4,7 @@
 // @include     https://www.bazinio.com/*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/localstorage.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/localstorage.user.js
-// @version     1.01
+// @version     1.01a
 // @grant       none
 // ==/UserScript==
 
@@ -13,79 +13,89 @@ Ces script ne sont pas a lancé automatiquement mais manuellement pour recupér�
 les données de chaque compte
 */
 
-
+/**
+Retourne le min et max cash des comptes et les compte min et max
+*/
 function minMaxCash(){
 	
 	accounts = JSON.parse(localStorage.accounts);
 	
-	max = 0;
-	min = 4000000000000000;
+	maxCash = 0;
+	minCash = 4000000000000000;
 	
 	for(var i = 1;i < accounts.length;i++){
 		
 		if(accounts[i].cash > max){
-			max = accounts[i].cash;
-			maxAccount = accounts[i].name;
+			maxCash = accounts[i].cash;
+			maxAccountCash = accounts[i].name;
 		}
 		if(accounts[i].cash < min){
-			min = accounts[i].cash;
-			minAccount = accounts[i].name;
+			minCash = accounts[i].cash;
+			minAccountCash = accounts[i].name;
 		}
 	}
 	
-	console.log('Mini ' + min)
-	console.log('Maxi ' + max)
-	console.log('Account min ' + minAccount)
-	console.log('Account max ' + maxAccount)
+	console.log('Cash Mini ' + minCash)
+	console.log('Cash Maxi ' + maxCash)
+	console.log('Cash Account min ' + minAccountCash)
+	console.log('Cash Account max ' + maxAccountCash)
 	
 }
 
+/**
+Retourne le min et max banque des comptes et les compte min et max
+*/
 function minMaxBanque(){
 	
 	accounts = JSON.parse(localStorage.accounts);
 	
-	max = 0;
-	min = 4000000000000000;
+	maxBanque = 0;
+	minBanque = 4000000000000000;
 	
 	for(var i = 1;i < accounts.length;i++){
 		
 		if(accounts[i].banque > max){
-			max = accounts[i].banque;
-			maxAccount = accounts[i].name;
+			maxBanque = accounts[i].banque;
+			maxAccountBanque = accounts[i].name;
 		}
 		if(accounts[i].banque < min){
-			min = accounts[i].banque;
-			minAccount = accounts[i].name;
+			minBanque = accounts[i].banque;
+			minAccountBanque = accounts[i].name;
 		}
 	}
 	
-	console.log('Mini ' + min)
-	console.log('Maxi ' + max)
-	console.log('Account min ' + minAccount)
-	console.log('Account max ' + maxAccount)
+	console.log('Banque Mini ' + minBanque)
+	console.log('Banque Maxi ' + maxBanque)
+	console.log('Banque Account min ' + minAccountBanque)
+	console.log('Banque Account max ' + maxAccountBanque)
+	
 }
 
+/**
+Retourne le min et max CND des comptes et les compte min et max
+*/
 function minMaxCnd(){
 	
 	accounts = JSON.parse(localStorage.accounts);
 	
-	max = 0;
-	min = 4000000000000000;
+	maxCnd = 0;
+	minCnd = 4000000000000000;
 	
 	for(var i = 1;i < accounts.length;i++){
 		
 		if(accounts[i].cnd > max){
-			max = accounts[i].cnd;
-			maxAccount = accounts[i].name;
+			maxCnd = accounts[i].cnd;
+			maxAccountCnd = accounts[i].name;
 		}
 		if(accounts[i].cnd < min){
-			min = accounts[i].cnd;
-			minAccount = accounts[i].name;
+			minCnd = accounts[i].cnd;
+			minAccountCnd = accounts[i].name;
 		}
 	}
 	
-	console.log('Mini ' + min)
-	console.log('Maxi ' + max)
-	console.log('Account min ' + minAccount)
-	console.log('Account max ' + maxAccount)
+	console.log('Cnd Mini ' + minCnd)
+	console.log('Cnd Maxi ' + maxCnd)
+	console.log('Cnd Account min ' + minAccountCnd)
+	console.log('Cnd Account max ' + maxAccountCnd)
+	
 }
