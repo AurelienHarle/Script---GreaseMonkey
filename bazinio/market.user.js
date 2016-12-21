@@ -6,7 +6,7 @@
 // @include     https://www.bazinio.com//login.php?id=*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/market.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/market.user.js
-// @version     1.01a
+// @version     1.01b
 // @grant       none
 // ==/UserScript==
 
