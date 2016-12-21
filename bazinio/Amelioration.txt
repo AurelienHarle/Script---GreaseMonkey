@@ -2,3 +2,5 @@ Amelioration possible:
 
 Marcher vendre si achat possible au dessu
 Script banque : retirer la somme voulu venu de evo / heal etc.
+Deplacer les constante / variable utilisateur.
+Creation d'un menu interractif directement sur les pages du jeux.
