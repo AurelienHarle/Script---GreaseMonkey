@@ -1,5 +1,4 @@
 Amelioration possible:
 
 Marcher vendre si achat possible au dessu
-Script heal qui ce declanche n'importe ou si le compte est a > 50 pv
-Script deplacement a deplacé en haut des des script juste en dessou de  heal
+Script banque : retirer la somme voulu venu de evo / heal etc.
