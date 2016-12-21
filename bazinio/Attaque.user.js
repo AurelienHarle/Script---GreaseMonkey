@@ -4,7 +4,7 @@
 // @include     https://www.bazinio.com/ville.c*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Attaque.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Attaque.user.js
-// @version     1.01
+// @version     1.01a
 // @grant       none
 // ==/UserScript==
 
@@ -25,7 +25,7 @@ function attaque(){
 				
 				cible[i].selected = true;
 				attaque = document.getElementsByName('att')[0].click();
-				//break;
+				
 			}
 		}
 		setTimeout(changementCompte,randomTimeout());
@@ -33,7 +33,7 @@ function attaque(){
 }
 
 /**
-Changement de compte
+Change de compte
 */
 function changementCompte(){
 	
@@ -42,15 +42,23 @@ function changementCompte(){
 	currentNumber = parseInt(currentAccount.split('e')[1]);
 	
 	if(currentNumber == 200){
-		nextNumber = 1
-	}else{
-		nextNumber = currentNumber + 1;
-	}
-	nextAccount = "Suicide" + nextNumber;
-	for(i = 0;i < accountList.length;i++){
 		
+		nextNumber = 1
+		
+	}else{
+		
+		nextNumber = currentNumber + 1;
+		
+	}
+	
+	nextAccount = "Suicide" + nextNumber;
+	
+	for(i = 0;i < accountList.length;i++){
+	
 		if(accountList[i].innerHTML ==  nextAccount){
+			
 			accountList[i].click();
+			
 		}
 	}
 }
@@ -65,6 +73,7 @@ function randomTimeout(){
     var randTimeout = min + (max-min+1) * Math.random();
     randTimeout = Math.trunc(randTimeout)
 	return randTimeout;
+	
 }
 
 setTimeout(attaque,randomTimeout());
