@@ -1,16 +1,16 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name        Acceuil
 // @namespace   anarchy
 // @include     https://www.bazinio.com/home.c*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Acceuil.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Acceuil.user.js
-// @version     1.01a
+// @version     1.01b
 // @grant       none
 // ==/UserScript==
 
 //Bienvenu maitre.
 
-console.log("Initialisation de l'IA");
+//console.log("Initialisation de l'IA");
 
 vie = document.getElementById('col_fiche').getElementsByTagName('td')[0].innerHTML;
 vie = parseInt(vie.split('/')[0]);
@@ -23,8 +23,8 @@ function changePage(){
 	
 	//Choix changeable attention a l'ordre
 	
-	boolMarche = true;
-	boolMonte = false;
+	boolMarche = false;
+	boolMonte = true;
 	boolRetire = false;
 	boolDepose = false;
 	boolAttaque = false;
@@ -89,5 +89,3 @@ function randomTimeout(){
 }
 
 setTimeout(changePage,randomTimeout());
-
-
