@@ -4,16 +4,19 @@
 // @include     https://www.bazinio.com/evolution.c
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Evolution.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Evolution.user.js
-// @version     1.01
+// @version     1.01a
 // @grant       none
 // ==/UserScript==
 
-
+/**
+Monte de niveau distribue les xp TODO pour tout les niveau + controle depuis le menu
+*/
 function evo(){
 	
 	niveau = document.getElementsByClassName('lfiche')[1].innerHTML;
 	niveau = niveau.split('<')[0];
 	niveau = parseInt(niveau.replace(/N/g,""));
+	
 	if(localStorage.xpDistr == "false"){
 		
 		if(niveau < 11){
@@ -37,14 +40,14 @@ function evo(){
 			
 		}
 	}else{
+		
 		setTimeout(changementCompte,randomTimeout);
+		
 	}
-	
-	
 }
 
 /**
-Change de compte
+Changement de compte
 */
 function changementCompte(){
 	
@@ -68,7 +71,7 @@ function changementCompte(){
 }
 	
 /**
-Genere un chiffre aleatoire entre 750 et 2000, et est retourné pour generé un timeout aleatoire en milliseconde
+Génere un chiffre aleatoire entre 750 et 2000, et est retourné pour generé un timeout aleatoire en milliseconde
 */
 function randomTimeout(){
 	
