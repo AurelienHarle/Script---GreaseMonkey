@@ -37,6 +37,7 @@ function changementCompte(){
 	accountList = document.getElementById('chat').getElementsByTagName('a');
 	currentAccount = document.getElementsByClassName('lfiche')[0].getElementsByTagName('a')[0].innerHTML;
 	currentNumber = parseInt(currentAccount.split('e')[1]);
+	
 	if(currentNumber == 200){
 		nextNumber = 1
 	}else{
