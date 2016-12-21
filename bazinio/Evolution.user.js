@@ -4,7 +4,7 @@
 // @include     https://www.bazinio.com/evolution.c
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Evolution.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Evolution.user.js
-// @version     1
+// @version     1.01
 // @grant       none
 // ==/UserScript==
 
@@ -16,20 +16,20 @@ function evo(){
 	niveau = parseInt(niveau.replace(/N/g,""));
 	if(localStorage.xpDistr == "false"){
 		
-		if(niveau < 5){
+		if(niveau < 11){
 		
 			localStorage.xpDistr = "false";
 			document.getElementsByName('up')[0].click();
 		
-		}else if(niveau == 5){
+		}else if(niveau == 11){
 		
 			force = document.getElementById('forc');
 			habilite = document.getElementById('h');
 			resistance = document.getElementById('r');
 			esquive = document.getElementById('e');
 			
-			force.value = 12;
-			habilite.value = 13;
+			force.value = 14;
+			habilite.value = 17;
 			resistance.value = 10;
 			esquive.value = 10;
 			localStorage.xpDistr = "true";
