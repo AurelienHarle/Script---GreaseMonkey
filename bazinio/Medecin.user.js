@@ -49,14 +49,14 @@ Genere un chiffre aleatoire entre 750 et 2000, et est retourné pour generé un 
 function randomTimeout(){
 	
 	var max = 2550;
-	var min = 950;
-    var randTimeout = min + (max-min+1) * Math.random();
-    randTimeout = Math.trunc(randTimeout)
+  	var min = 950;
+  	var randTimeout = min + (max-min+1) * Math.random();
+  	randTimeout = Math.trunc(randTimeout)
 	return randTimeout;
 }
 
 if(vie != 50){
-	setTimeout(medecin,randomTimeout());
+ 	setTimeout(medecin,randomTimeout());
 }else{
 	document.getElementById('head_l').getElementsByTagName('a')[0].click();
 }
