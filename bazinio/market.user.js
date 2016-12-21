@@ -1,4 +1,4 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name        market
 // @namespace   anarchy
 // @description deal each hour
@@ -6,7 +6,7 @@
 // @include     https://www.bazinio.com//login.php?id=*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/market.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/market.user.js
-// @version     1.01
+// @version     1.01a
 // @grant       none
 // ==/UserScript==
 
@@ -15,7 +15,7 @@ Create the market array for sell or buy
 */
 function createDrug(){
 	
-	console.log("Hey master I create the drug market for you");
+	//console.log("Hey master I create the drug market for you");
 	
 	if(document.getElementsByName('dep')[0] != undefined){
 		document.getElementsByName('dep')[0].click();
@@ -25,7 +25,12 @@ function createDrug(){
 	cash = cash.replace(/µ/,"");
 	cash = parseInt(cash.replace(/\s+/g,""));
 	
-	if(cash > 2000000){
+	niveau = document.getElementsByClassName('lfiche')[1].innerHTML;
+	niveau = niveau.split('<')[0];
+	niveau = parseInt(niveau.replace(/N/g,""));
+	
+	if(cash > 20000000 && niveau > 1){
+		localStorage.banque = "cnd";
 		banque();
 	}
 	
@@ -79,21 +84,21 @@ function createDrug(){
 		
 	}
 	
-	console.log("Wow all this drug look amasing let's go to do something with it");
+	//console.log("Wow all this drug look amasing let's go to do something with it");
 	setTimeout(achatVente,1000);
 	
 }
 
 function achatVente(){
 	
-	console.log("let me check what we need to do with each drug");
+	//console.log("let me check what we need to do with each drug");
 	
 	for(i = 0;i < Drug.length;i++){
 		if(Drug[i].action == "vendre/acheter"){
 			
 			if(Drug[i].price <= 4){
 				
-				console.log("Great price let me buy !");
+				//console.log("Great price let me buy !");
 				Drug[i].boutton = Drug[i].Aboutton;
 				buy();
 				break;
@@ -102,33 +107,33 @@ function achatVente(){
 			
 			if(Drug[i].price >= 5){
 				
-				console.log("Great price let me sell !");
+				//console.log("Great price let me sell !");
 				Drug[i].boutton = Drug[i].Vboutton;
 				sell();
 				break;
 			}
 	
 		}else if(Drug[i].action == "acheter"){
-			console.log("let me look if the price are ok for buy");
+			//console.log("let me look if the price are ok for buy");
 			if(Drug[i].price <= 4){
 				
-				console.log("Great price let me buy !");
+				//console.log("Great price let me buy !");
 				buy();
 				break;
 			}
 			
 		}else if(Drug[i].action == "vendre"){
-			console.log("let me look if the price are ok for sell");
+			//console.log("let me look if the price are ok for sell");
 			if(Drug[i].price >= 5){
 				
-				console.log("Great price let me sell !");
+				//console.log("Great price let me sell !");
 				sell();
 				break;
 			}
 			
 		}else{
 			
-			console.log("Nothing to do :(");
+			//console.log("Nothing to do :(");
 			
 		}
 		
@@ -143,7 +148,7 @@ Vente du marcher
 */
 function sell(){
 	
-	console.log("Click for sell!");
+	//console.log("Click for sell!");
 	
 	Drug[i].boutton.click();
 	
@@ -155,7 +160,7 @@ Achat du marcher
 */
 function buy(){
 	
-	console.log("Click for buy!");
+	//console.log("Click for buy!");
 	
 	Drug[i].boutton.click();
 	//setTimeout(cooldown,1000);
