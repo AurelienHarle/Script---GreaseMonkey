@@ -1,11 +1,11 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name        banque
 // @namespace   Anarchy
 // @description depose en banque le surplus
 // @include     https://www.bazinio.com/banque.c*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/banque.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/banque.user.js
-// @version     1.01b
+// @version     1.01c
 // @grant       none
 // ==/UserScript==
 
@@ -128,4 +128,4 @@ function controleBanque(){
 
 }
 
-setTimmeout(controlebanque,randomTimeout());
+setTimeout(controleBanque,randomTimeout());
