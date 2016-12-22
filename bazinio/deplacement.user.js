@@ -4,7 +4,7 @@
 // @include     https://www.bazinio.com/*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/deplacement.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/deplacement.user.js
-// @version     1.01
+// @version     1.01a
 // @grant       none
 // ==/UserScript==
 
