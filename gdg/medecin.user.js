@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name        medecin
 // @namespace   gdg
 // @include     https://www.guerredesgangs.net/fr/medecin.c
