@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name        banque
 // @namespace   Anarchy
 // @description depose en banque le surplus
@@ -19,6 +19,7 @@ function depose(){
 	cash = parseInt(cash.replace(/\s+/g,""));
 	
 	depose = cash - 2000000
+	
 	if(depose == 0){
 		
 		document.getElementById('marche').click();
@@ -35,6 +36,7 @@ Fonction qui retire TOUT de la banque TODO qui retire seulement la somme souhait
 function retire(){
 	
 	inputRetire = document.getElementById('banque_retrait');
+	
 	if(inputRetire == null){
 		setTimeout(changementCompte,randomTimeout());
 	}else{
@@ -61,7 +63,6 @@ function cnd(){
 	if(cash == 30000000){
 		
 		document.getElementById('marche').click();
-		//setTimeout(changementCompte,randomTimeout());
 		
 	}else{
 		
@@ -79,6 +80,7 @@ function changementCompte(){
 	accountList = document.getElementById('chat').getElementsByTagName('a');
 	currentAccount = document.getElementsByClassName('lfiche')[0].getElementsByTagName('a')[0].innerHTML;
 	currentNumber = parseInt(currentAccount.split('e')[1]);
+	
 	if(currentNumber == 200){
 		nextNumber = 1
 	}else{

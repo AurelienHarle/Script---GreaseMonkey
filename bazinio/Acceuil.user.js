@@ -1,10 +1,10 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name        Acceuil
 // @namespace   anarchy
 // @include     https://www.bazinio.com/home.c*
 // @downloadURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Acceuil.user.js
 // @updateURL	https://github.com/AurelienHarle/Script---GreaseMonkey/master/bazinio/Acceuil.user.js
-// @version     1.01b
+// @version     1.01
 // @grant       none
 // ==/UserScript==
 
@@ -23,8 +23,8 @@ function changePage(){
 	
 	//Choix changeable attention a l'ordre
 	
-	boolMarche = false;
-	boolMonte = true;
+	boolMarche = true;
+	boolMonte = false;
 	boolRetire = false;
 	boolDepose = false;
 	boolAttaque = false;
@@ -89,3 +89,5 @@ function randomTimeout(){
 }
 
 setTimeout(changePage,randomTimeout());
+
+

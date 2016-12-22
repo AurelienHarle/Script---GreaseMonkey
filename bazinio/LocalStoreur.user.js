@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name        LocalStoreur
 // @namespace   anarchy
 // @include     https://www.bazinio.com/marche.c

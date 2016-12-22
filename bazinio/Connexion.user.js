@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name        Connexion
 // @namespace   anarchy
 // @description Connect to the right account
