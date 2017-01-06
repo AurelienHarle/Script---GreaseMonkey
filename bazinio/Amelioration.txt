@@ -1,7 +1,11 @@
 Amelioration possible:
 
+Pour V2
+Creation d'un menu interractif directement sur les pages du jeux.
+Toute partie du bot retourne a l'accueil
+Deplacer les constante / variable utilisateur.
+Enregistrer les param utilisateur dans localstorage
+
+V2.5
 Marcher vendre si achat possible au dessu
 Script banque : retirer la somme voulu venu de evo / heal etc.
-Deplacer les constante / variable utilisateur.
-Creation d'un menu interractif directement sur les pages du jeux.
-Enregistrer les param utilisateur dans localstorage
