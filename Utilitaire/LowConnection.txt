@@ -1,0 +1,1 @@
+Creation du script qui permet de ne pas charger les images ce trouvant sur les pages web avec un bouton pour les charger si besoin.
