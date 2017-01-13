@@ -1,0 +1,2 @@
+Installer GreaseMonkey: https://addons.mozilla.org/fr/firefox/addon/greasemonkey/
+Wiki GreaseMonkey: https://wiki.greasespot.net/Main_Page
