@@ -13,26 +13,28 @@ Monte de niveau distribue les xp TODO pour tout les niveau + controle depuis le 
 */
 function evo(){
 	
+	const niveauObjectif = 13;
+	
 	niveau = document.getElementsByClassName('lfiche')[1].innerHTML;
 	niveau = niveau.split('<')[0];
 	niveau = parseInt(niveau.replace(/N/g,""));
-	
+
 	if(localStorage.xpDistr == "false"){
 		
-		if(niveau < 11){
+		if(niveau < niveauObjectif){
 		
 			localStorage.xpDistr = "false";
 			document.getElementsByName('up')[0].click();
 		
-		}else if(niveau == 11){
+		}else if(niveau == niveauObjectif){
 		
 			force = document.getElementById('forc');
 			habilite = document.getElementById('h');
 			resistance = document.getElementById('r');
 			esquive = document.getElementById('e');
 			
-			force.value = 14;
-			habilite.value = 17;
+			force.value = 15;
+			habilite.value = 18;
 			resistance.value = 10;
 			esquive.value = 10;
 			localStorage.xpDistr = "true";

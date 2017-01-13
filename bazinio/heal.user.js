@@ -14,7 +14,7 @@ cash = document.getElementsByClassName('liens')[2].getElementsByTagName('td')[0]
 	cash = cash.replace(/µ/,"");
 	cash = parseInt(cash.replace(/\s+/g,""));
 	
-if(vie < 50 && cash > 2000000){
+if(vie < 50 && cash > 3000000){
 	
 	document.getElementById('medecin').click();
 	

@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name        banque
 // @namespace   Anarchy
 // @description depose en banque le surplus
@@ -18,7 +18,7 @@ function depose(){
 	cash = cash.replace(/µ/,"");
 	cash = parseInt(cash.replace(/\s+/g,""));
 	
-	depose = cash - 2000000
+	depose = cash - 5000000
 	
 	if(depose == 0){
 		
@@ -59,8 +59,8 @@ function cnd(){
 	cash = cash.replace(/µ/,"");
 	cash = parseInt(cash.replace(/\s+/g,""));
 	
-	cdnDepose = cash - 30000000
-	if(cash == 30000000){
+	cdnDepose = cash - 50000000
+	if(cash == 50000000){
 		
 		document.getElementById('marche').click();
 		

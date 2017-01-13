@@ -26,7 +26,6 @@ function createLocalStorageMenu(){
 		menu.attaqueActiver = false;
 		menu.sacActiver = false;
 		menu.evolutionActiver = false;
-		menu.jeuxActiver = false;
 		
 		menu.deplacementRadioAuto = false;
 		menu.deplacementRadioHeure = false;
@@ -69,7 +68,6 @@ function updateLocalStorageMenu(){
 	menu.attaqueActiver = checkboxAttaqueMenu.checked;
 	menu.sacActiver = checkboxSacMenu.checked;
 	menu.evolutionActiver = checkboxEvolutionMenu.checked;
-	menu.jeuxActiver = checkboxJeuxMenu.checked;
 	
 	menu.deplacementRadioAuto = radioDeplacementAutoMenu.checked;
 	menu.deplacementRadioHeure = radioDeplacementHeureMenu.checked;
@@ -516,35 +514,6 @@ function createElementMenu(){
 	imageEvolutionMenu.style.height = "16px";
 	imageEvolutionMenu.addEventListener("click", ouvreMenuEvolution, false);
 	imageEvolutionMenu.style.webkitTransition = "right 2s";
-
-//Jeux
-	jeuxMenu = document.createElement('div');
-	jeuxMenu.style.borderBottom = "1px solid #336699";
-	jeuxMenu.style.webkitTransition = "height 2s";
-	jeuxMenu.style.height = "19px";
-
-	titreJeuxMenu = document.createElement('h2');
-	titreJeuxMenu.style.marginBottom = "0px";
-	titreJeuxMenu.style.borderBottom = "1px solid #336699";
-	
-	labelActiverJeuxMenu = document.createElement('label');
-	labelActiverJeuxMenu.style.display = "none";
-
-	checkboxJeuxMenu = document.createElement('input');
-	checkboxJeuxMenu.addEventListener('click',updateLocalStorageMenu,false);
-	checkboxJeuxMenu.type = "checkbox";
-	checkboxJeuxMenu.name = "jeux";
-	checkboxJeuxMenu.value = "jeux";
-	checkboxJeuxMenu.checked = menu.jeuxActiver;
-	checkboxJeuxMenu.style.display = "none";
-
-	 imageJeuxMenu = document.createElement('img');
-	imageJeuxMenu.src = "http://www.truckingtruth.com/cdn/misc-images/arrow-32-32.png";
-	imageJeuxMenu.style.MozTransform = "rotate(90deg)";
-	imageJeuxMenu.style.width = "16px";
-	imageJeuxMenu.style.height = "16px";
-	imageJeuxMenu.addEventListener("click", ouvreMenuJeux, false);
-	imageJeuxMenu.style.webkitTransition = "right 2s";
 	
 	createTextNode();
 }
@@ -605,10 +574,6 @@ function createTextNode(){
 	 textResistanceEvolutionMenu = document.createTextNode("Resistance");
 	 textEsquiveEvolutionMenu = document.createTextNode("Esquive");
 	
-//Jeux
-	 textTitreJeuxMenu = document.createTextNode("Jeux");
-	 textLabelActiveJeuxMenu = document.createTextNode("Activer");
-	
 	addChildElementToParent();
 }
 /**
@@ -635,8 +600,6 @@ function addChildElementToParent(){
 	menuBot.appendChild(imageSacMenu);
 	menuBot.appendChild(evolutionMenu);
 	menuBot.appendChild(imageEvolutionMenu);
-	menuBot.appendChild(jeuxMenu);
-	menuBot.appendChild(imageJeuxMenu);
 
 //Ajout a titreMenuBot
 	titreMenuBot.appendChild(textTitreMenuBot);
@@ -784,13 +747,6 @@ function addChildElementToParent(){
 	labelXPREvolutionMenu.appendChild(textResistanceEvolutionMenu);
 	labelXPEEvolutionMenu.appendChild(textEsquiveEvolutionMenu);
 	
-//Ajout a jeuxMenu
-	jeuxMenu.appendChild(titreJeuxMenu);
-	jeuxMenu.appendChild(labelActiverJeuxMenu);
-	jeuxMenu.appendChild(checkboxJeuxMenu);
-	titreJeuxMenu.appendChild(textTitreJeuxMenu);
-	labelActiverJeuxMenu.appendChild(textLabelActiveJeuxMenu);
-	
 	addMenuToDocument();
 	
 }
@@ -800,7 +756,7 @@ function addChildElementToParent(){
 */
 function addMenuToDocument(){
 	
-	 currentDiv = document.getElementById("chatedicon"); 
+	currentDiv = document.getElementById("chatedicon"); 
 	parentElement = currentDiv.parentNode;
 	parentElement.insertBefore(menuBot, currentDiv);
 	parentElement.insertBefore(imageMenuBot,currentDiv);
@@ -1027,28 +983,6 @@ function ouvreMenuEvolution(){
 }
 
 /**
-	Ouvre le Menu Jeux
-*/
-function ouvreMenuJeux(){
-	
-	if (jeuxMenu.style.height == "19px"){
-		
-		jeuxMenu.style.height = '40px';
-		imageJeuxMenu.style.top = '40px';
-		imageJeuxMenu.style.MozTransform = "rotate(270deg)";
-		setTimeout(afficheMenuJeux,2000);
-		
-	}else if (jeuxMenu.style.height == "40px"){
-		
-		cacheMenuJeux();
-		jeuxMenu.style.height = '19px';
-		imageJeuxMenu.style.top = '19px';
-		imageJeuxMenu.style.MozTransform = "rotate(90deg)";
-		
-	}
-}
-
-/**
 	Affiche les elements du menu medecin
 */
 function afficheMenuMedecin(){
@@ -1163,16 +1097,6 @@ function afficheMenuEvolution(){
 }
 
 /**
-	Affiche les elements du menu Jeux
-*/
-function afficheMenuJeux(){
-	
-	checkboxJeuxMenu.style.display = "inline";
-	labelActiverJeuxMenu.style.display = "inline";
-	
-}
-
-/**
 	Cache les elements du menu Medecin
 */
 function cacheMenuMedecin(){
@@ -1283,16 +1207,6 @@ function cacheMenuEvolution(){
 	xpHabiliteEvolutionMenu.style.display = "none";
 	xpResistanceEvolutionMenu.style.display = "none";
 	xpEsquiveEvolutionMenu.style.display = "none";
-	
-}
-
-/**
-	Cache les elements du menu Jeux
-*/
-function cacheMenuJeux(){
-	
-	checkboxJeuxMenu.style.display = "none";
-	labelActiverJeuxMenu.style.display = "none";
 	
 }
 

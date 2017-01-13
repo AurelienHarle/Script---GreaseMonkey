@@ -8,71 +8,75 @@
 // @grant       none
 // ==/UserScript==
 
-//Bienvenu maitre.
-
-//console.log("Initialisation de l'IA");
-
-vie = document.getElementById('col_fiche').getElementsByTagName('td')[0].innerHTML;
-vie = parseInt(vie.split('/')[0]);
+console.log("Initialisation de l'IA");
+console.log("Bienvenu maitre.");
 
 /**
-Cette fonctionnalité amenera sur les differentes celon les données recupéré sur l'accueil 
-et les parties activée ou non du script
+	Fonction qui recupere les données stocker dans le localStorage aussi bien le menu
+	que le compte courant
 */
-function changePage(){
+function recupLocalStorage(){
 	
-	//Choix changeable attention a l'ordre
+	currentNumber = document.getElementsByClassName('lfiche')[0].getElementsByTagName('a')[0].innerHTML;
+	currentNumber = parseInt(currentNumber.split('e')[1]);
 	
-	boolMarche = true;
-	boolMonte = false;
-	boolRetire = false;
-	boolDepose = false;
-	boolAttaque = false;
-	boolSac = false;
-	boolMedecin = false;
-	boolCnd = false;
+	menu = JSON.parse(localStorage.menu);
+	accounts = JSON.parse(localStorage.accounts);
+	currentAccout = accounts[currentNumber];
 	
-	if(vie != 50){
-		boolMedecin = true;
-	}
-	//Aiguilleur
+}
+
+/**
+Cette fonction changera de page celon les fonctionallité activé
+et les valeurs rentrer
+*/
+function aiguilleur(){
 	
-	if(boolMedecin){
+	boolMedecin = menu.medecinActiver;
+	boolMarcher = menu.marcherActiver;
+	boolDeplacement = menu.deplacementActiver;
+	boolDepose = menu.deposeActiver;
+	boolCnd = menu.cndActiver;
+	boolRetire = menu.retireActiver;
+	boolAttaque = menu.attaqueActiver;
+	boolSac = menu.sacActiver;
+	boolEvolution = menu.evolutionActiver;
+	
+	if(boolMedecin == true && currentAccout.vie < 50){
 		
 		document.getElementById('medecin').click();
 		
-	}else if(boolMarche){
+	}else if(boolMarcher == true){
 		
-		document.getElementById('marche').click();
+		document.getElementById('medecin').click();
 		
-	}else if(boolMonte){
+	}else if(boolDepose == true && currentAccount.cash > menu.deposeMontant){
+		
+		document.getElementById('banque').click();
+		
+	}else if(boolCnd == true && currentAccount.cash >menu.cndMontant){
+		
+		document.getElementById('banque').click();
+		
+	}else if(boolRetire == true){
+		
+		document.getElementById('banque').click();
+		
+	}else if(boolAttaque == true){
+		
+		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[5].click();
+		
+	}else if(boolSac == true){
+		
+		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[3].click();
+
+	}else if(boolEvolution == true && currentAccount.niveau < menu.evolutionNiveau){
 		
 		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[4].click();
 		
-	}else if (boolRetire){
-		
-		localStorage.banque = "retire"
-		document.getElementById('banque').click();
-		
-	}else if (boolDepose){
-		
-		localStorage.banque = "depose"
-		document.getElementById('banque').click();
-		
-	}else if (boolAttaque){
-		
-		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[5].click();
-	
-	}else if (boolSac){
-		
-		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[3].click()
-	
-	}else if (boolCnd){
-		
-		localStorage.banque = "cnd"
-		document.getElementById('banque').click();
-		
 	}
+	
+	
 
 }
 
@@ -88,6 +92,6 @@ function randomTimeout(){
 	return randTimeout;
 }
 
-setTimeout(changePage,randomTimeout());
+setTimeout(recupLocalStorage,randomTimeout());
 
 

@@ -23,7 +23,7 @@ function createDrug(){
 	niveau = niveau.split('<')[0];
 	niveau = parseInt(niveau.replace(/N/g,""));
 	
-	if(cash > 30000000 && niveau > 1){
+	if(cash > 50000000 && niveau > 1){
 		localStorage.banque = "cnd";
 		banque();
 	}
