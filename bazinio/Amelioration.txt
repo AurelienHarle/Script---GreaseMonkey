@@ -9,3 +9,4 @@ Enregistrer les param utilisateur dans localstorage
 V2.5
 Marcher vendre si achat possible au dessu
 Script banque : retirer la somme voulu venu de evo / heal etc.
+Egaliseur d'argent envoie tout sur le premier compte jusqu'a une somme puis passe au second etc
