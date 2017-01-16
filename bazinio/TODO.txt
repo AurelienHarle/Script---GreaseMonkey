@@ -1,10 +1,10 @@
 Amelioration possible:
 
 Pour V2
-Creation d'un menu interractif directement sur les pages du jeux.
-Toute partie du bot retourne a l'accueil
+Organiser tout les scripts pour etre compatible avec le menu
+Toute partie du bot retourne a l'accueil.
 Deplacer les constante / variable utilisateur.
-Enregistrer les param utilisateur dans localstorage
+Enregistrer les param utilisateur dans localstorage.
 
 V2.5
 Marcher vendre si achat possible au dessu
