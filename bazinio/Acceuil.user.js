@@ -22,7 +22,15 @@ function recupLocalStorage(){
 	
 	menu = JSON.parse(localStorage.menu);
 	accounts = JSON.parse(localStorage.accounts);
-	currentAccout = accounts[currentNumber];
+	currentAccount = accounts[currentNumber];
+	
+	cash = document.getElementsByClassName('liens')[2].getElementsByTagName('td')[0].innerHTML;
+	cash = cash.replace(/µ/,"");
+	cash = parseInt(cash.replace(/\s+/g,""));
+	
+	console.log("Liste de compte regénerée.");
+	
+	setTimeout(aiguilleur,randomTimeout);
 	
 }
 
@@ -42,42 +50,82 @@ function aiguilleur(){
 	boolSac = menu.sacActiver;
 	boolEvolution = menu.evolutionActiver;
 	
-	if(boolMedecin == true && currentAccout.vie < 50){
+	console.log("Selection de la procedure a suivre maitre.");
+	
+	if(boolMedecin == true && currentAccount.vie < 50){
 		
+		console.log("Medecin.");
 		document.getElementById('medecin').click();
 		
-	}else if(boolMarcher == true){
+	}else if(boolMarcher == true && localStorage.boolDeal == "false"){
 		
-		document.getElementById('medecin').click();
+		console.log("Marcher.");
+		document.getElementById('marche').click();
 		
-	}else if(boolDepose == true && currentAccount.cash > menu.deposeMontant){
+	}else if(boolDepose == true && cash > menu.deposeMontant){
 		
+		console.log("Banque depose.");
 		document.getElementById('banque').click();
 		
-	}else if(boolCnd == true && currentAccount.cash >menu.cndMontant){
+	}else if(boolCnd == true && currentAccount.cash > menu.cndMontant){
 		
+		console.log("Banque CND.");
 		document.getElementById('banque').click();
 		
 	}else if(boolRetire == true){
 		
+		console.log("Banque retire.");
 		document.getElementById('banque').click();
 		
 	}else if(boolAttaque == true){
 		
+		console.log("Attaque.");
 		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[5].click();
 		
 	}else if(boolSac == true){
 		
+		console.log("Sac.");
 		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[3].click();
 
 	}else if(boolEvolution == true && currentAccount.niveau < menu.evolutionNiveau){
 		
+		console.log("Evolution.");
 		document.getElementsByClassName('menu_bloc')[0].getElementsByTagName('a')[4].click();
 		
 	}
 	
-	
+	setTimeout(changementCompte,3000);
+}
 
+/**
+Changement de compte
+*/
+function changementCompte(){
+	
+	accountList = document.getElementById('chat').getElementsByTagName('a');
+	//currentAccount = document.getElementsByClassName('lfiche')[0].getElementsByTagName('a')[0].innerHTML;
+	//currentNumber = parseInt(currentAccount.split('e')[1]);
+	
+	localStorage.boolDeal = false;
+	
+	if(currentNumber == 200){
+		
+		nextNumber = 1
+		
+	}else{
+		
+		nextNumber = currentNumber + 1;
+		
+	}
+	
+	nextAccount = "Suicide" + nextNumber;
+	
+	for(i = 0;i < accountList.length;i++){
+		
+		if(accountList[i].innerHTML ==  nextAccount){
+			accountList[i].click();
+		}
+	}
 }
 
 /**
@@ -90,8 +138,7 @@ function randomTimeout(){
     var randTimeout = min + (max-min+1) * Math.random();
     randTimeout = Math.trunc(randTimeout)
 	return randTimeout;
+	
 }
 
 setTimeout(recupLocalStorage,randomTimeout());
-
-

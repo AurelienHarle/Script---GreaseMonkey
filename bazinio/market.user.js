@@ -23,10 +23,15 @@ function createDrug(){
 	niveau = niveau.split('<')[0];
 	niveau = parseInt(niveau.replace(/N/g,""));
 	
-	if(cash > 50000000 && niveau > 1){
+	/*if(cash > 50000000 && niveau > 1){
 		localStorage.banque = "cnd";
 		banque();
 	}
+	
+	if(cash > 10000000 && niveau == 1){
+		localStorage.banque = "depose";
+		banque();
+	}*/
 	
 	market = document.getElementsByClassName('tableau market')[0].getElementsByTagName('tr');
 	
@@ -123,7 +128,7 @@ function achatVente(){
 			
 		}
 	}
-	setTimeout(changementCompte,randomTimeout());
+	setTimeout(retourAccueil,randomTimeout());
 }
 
 /**
@@ -145,32 +150,13 @@ function buy(){
 }
 
 /**
-Changement de compte
+Fonction qui retourne a la page d'acceuil du site
 */
-function changementCompte(){
+function retourAccueil(){
 	
-	accountList = document.getElementById('chat').getElementsByTagName('a');
-	currentAccount = document.getElementsByClassName('lfiche')[0].getElementsByTagName('a')[0].innerHTML;
-	currentNumber = parseInt(currentAccount.split('e')[1]);
+	localStorage.boolDeal = true;
+	document.getElementById('head_l').getElementsByTagName('a')[0].click();
 	
-	if(currentNumber == 200){
-		
-		nextNumber = 1
-		
-	}else{
-		
-		nextNumber = currentNumber + 1;
-		
-	}
-	
-	nextAccount = "Suicide" + nextNumber;
-	
-	for(i = 0;i < accountList.length;i++){
-		
-		if(accountList[i].innerHTML ==  nextAccount){
-			accountList[i].click();
-		}
-	}
 }
 
 /**

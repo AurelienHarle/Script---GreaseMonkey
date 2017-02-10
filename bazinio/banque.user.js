@@ -18,15 +18,20 @@ function depose(){
 	cash = cash.replace(/µ/,"");
 	cash = parseInt(cash.replace(/\s+/g,""));
 	
-	depose = cash - 5000000
+	depose = cash - menu.deposeMontant;
 	
-	if(depose == 0){
+	if(depose != 0){
 		
-		document.getElementById('marche').click();
+		document.getElementById('banque_depot').value = depose;
+		document.getElementsByClassName('btn')[0].click();
+		
+	}else{
+		
+		setTimeout(retourAccueil,250);
 		
 	}
-	document.getElementById('banque_depot').value = depose;
-	document.getElementsByClassName('btn')[0].click();
+	
+	
 	
 }
 
@@ -38,9 +43,13 @@ function retire(){
 	inputRetire = document.getElementById('banque_retrait');
 	
 	if(inputRetire == null){
-		setTimeout(changementCompte,randomTimeout());
+		
+		setTimeout(retourAccueil,randomTimeout());
+		
 	}else{
+		
 		btnRetire = document.getElementsByClassName('btn')[1].click();
+		
 	}
 	
 	
@@ -59,10 +68,10 @@ function cnd(){
 	cash = cash.replace(/µ/,"");
 	cash = parseInt(cash.replace(/\s+/g,""));
 	
-	cdnDepose = cash - 50000000
-	if(cash == 50000000){
+	cdnDepose = cash - menu.cndMontant;
+	if(cdnDepose == 0){
 		
-		document.getElementById('marche').click();
+		setTimeout(retourAccueil,randomTimeout());
 		
 	}else{
 		
@@ -73,28 +82,26 @@ function cnd(){
 }
 
 /**
-Changement de compte
+	Fonction qui recupere les données stocker dans le localStorage aussi bien le menu
+	que le compte courant
 */
-function changementCompte(){
+function recupLocalStorage(){
 	
-	accountList = document.getElementById('chat').getElementsByTagName('a');
-	currentAccount = document.getElementsByClassName('lfiche')[0].getElementsByTagName('a')[0].innerHTML;
-	currentNumber = parseInt(currentAccount.split('e')[1]);
+	menu = JSON.parse(localStorage.menu);
+	console.log("Information du menu recupérér.");
+	setTimeout(controleBanque,randomTimeout());
 	
-	if(currentNumber == 200){
-		nextNumber = 1
-	}else{
-		nextNumber = currentNumber + 1;
-	}
-	nextAccount = "Suicide" + nextNumber;
-	for(i = 0;i < accountList.length;i++){
-		
-		if(accountList[i].innerHTML ==  nextAccount){
-			accountList[i].click();
-		}
-	}
 }
+
+/**
+Fonction qui retourne a la page d'acceuil du site
+*/
+function retourAccueil(){
 	
+	document.getElementById('head_l').getElementsByTagName('a')[0].click();
+	
+}
+
 /**
 Genere un chiffre aleatoire entre 750 et 2000, et est retourné pour generé un timeout aleatoire en milliseconde
 */
@@ -112,20 +119,25 @@ Fonction de controle , qui renvoie sur la fonction celon l'action a realisée
 */
 function controleBanque(){
 	
+	console.log("Verification de l'action a realisé");
+	
 	if(localStorage.banque == "depose"){
 		
+		console.log('Dépose');
 		setTimeout(depose,randomTimeout());
 		
 	}else if (localStorage.banque == "retire"){
 		
+		console.log('Retire');
 		setTimeout(retire,randomTimeout());
 		
 	}else if (localStorage.banque == "cnd"){
 		
+		console.log('CND');
 		setTimeout(cnd,randomTimeout());
 		
 	}
 
 }
 
-setTimeout(controleBanque,randomTimeout());
+setTimeout(recupLocalStorage,randomTimeout());
